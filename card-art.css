@@ -1,0 +1,109 @@
+/* Original Hearthstone art. Live card names, keywords and stats remain separate. */
+.card-art {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 1em;
+  vertical-align: middle;
+  isolation: isolate;
+}
+.art-fallback {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  line-height: 1;
+}
+.art-image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  user-select: none;
+  pointer-events: none;
+}
+.art-image[hidden], .art-failed .art-image { display: none; }
+.minion-art {
+  position: relative;
+  overflow: hidden;
+  background: #19271e;
+}
+.minion-art .art-image { object-position: center 42%; }
+.minion-art .art-image,
+.collection-icon .art-image,
+.inspector .big-icon .art-image,
+.deity-art .art-image,
+.manifest-art .art-image,
+.discard-art .art-image { transform: scale(1.3); }
+.minion-name { position: relative; z-index: 1; background: #1c2a22; }
+.golden .minion-name { background: #41371f; }
+.minion-keys { position: relative; z-index: 1; }
+.hero-portrait { overflow: hidden; }
+.hero-portrait .card-art { border-radius: inherit; }
+.hero-portrait .art-image { object-position: center 38%; }
+.hero-orb { position: relative; isolation: isolate; }
+.hero-orb > .card-art {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
+}
+.hero-orb > small { z-index: 2; }
+.opponent .avatar, .combat-enemy .avatar {
+  flex-shrink: 0;
+  width: 36px;
+  height: 42px;
+  border: 1px solid #a08852;
+  border-radius: 14px 14px 9px 9px;
+  overflow: hidden;
+  background: #18251d;
+}
+.combat-enemy .avatar { width: 42px; height: 48px; }
+.next-opponent-art {
+  width: 76px;
+  height: 76px;
+  overflow: hidden;
+  border: 1px solid #9b8654;
+  border-radius: 50%;
+  margin: 12px auto 8px;
+}
+.inspector .big-icon.has-card-art {
+  float: none;
+  width: 100%;
+  height: 145px;
+  margin: 0 0 14px;
+  overflow: hidden;
+  border: 1px solid #8c7c4d;
+  border-radius: 9px;
+  background: #17261c;
+}
+.collection-grid { grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); }
+.collection-icon.has-card-art {
+  flex: 0 0 82px;
+  width: 82px;
+  height: 82px;
+  overflow: hidden;
+  border: 1px solid #8c7c4d;
+  border-radius: 8px;
+  background: #17261c;
+}
+.collection-card > div:last-child { min-width: 0; }
+.deity-pocket > .deity-art { flex: 0 0 54px; width: 54px; height: 54px; border-radius: 9px; overflow: hidden; }
+.manifest-art { width: 140px; height: 140px; border: 1px solid #a889c2; border-radius: 14px; overflow: hidden; margin: 8px auto 18px; }
+.discard-options .discard-art { width: 76px; height: 76px; border-radius: 9px; overflow: hidden; }
+.discover-trinket-icon.has-card-art { width: 92px; height: 92px; border-radius: 10px; overflow: hidden; }
+@media (max-width: 800px) {
+  .opponent .avatar { width: 28px; height: 34px; border-radius: 10px; }
+  .deity-pocket > .deity-art { flex-basis: 46px; width: 46px; height: 46px; }
+}
+@media (max-width: 520px) {
+  .collection-grid { grid-template-columns: 1fr; }
+  .collection-icon.has-card-art { flex-basis: 74px; width: 74px; height: 74px; }
+  .inspector .big-icon.has-card-art { height: 116px; margin-bottom: 10px; }
+  .discover-trinket-icon.has-card-art { width: 72px; height: 72px; }
+}
